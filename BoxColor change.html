@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Change Box Color</title>
+  <style>
+    body 
+    {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background-color: #f4f4f4;
+    }
+
+    #colorBox 
+    {
+      padding: 30px;
+      margin: 20px auto;
+      width: 200px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      font-size: 20px;
+      background-color: white;
+      color: black;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    input 
+    {
+      padding: 10px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+
+    button 
+    {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+  
+  </style>
+</head>
+<body>
+
+  <h2>To Change the Box Background Color input the color!</h2>
+
+  <input type="text" id="colorInput" placeholder="Enter color name or hex code">
+  <button onclick="changeBoxColor()">Apply Color</button>
+
+  <div id="colorBox"></div>
+
+  <script>
+    function changeBoxColor() 
+    {
+      const color = document.getElementById("colorInput").value.trim();
+      const box = document.getElementById("colorBox");
+      box.style.backgroundColor = color;
+
+      // Optional: Change text color for contrast if background is too dark/light
+      if (color.toLowerCase() === "black" || color.toLowerCase() === "#000000") 
+      {
+        box.style.color = "white";
+      } 
+      else 
+      {
+        box.style.color = "black";
+      }
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Validation Form</title>
+  <style>
+    body 
+    {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .form-container 
+    {
+      background: white;
+      padding: 30px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input 
+    {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .message 
+    {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .weak { color: red; }
+    .medium { color: orange; }
+    .strong { color: green; }
+
+    button 
+    {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Create Account</h2>
+    <form onsubmit="return validateForm()">
+      <input type="password" id="password" placeholder="Enter password" onkeyup="checkStrength()" required>
+      <div id="strengthMessage" class="message"></div>
+
+      <input type="password" id="confirmPassword" placeholder="Confirm password" onkeyup="checkMatch()" required>
+      <div id="matchMessage" class="message"></div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    function checkStrength() 
+    {
+      const password = document.getElementById("password").value;
+      const strengthMessage = document.getElementById("strengthMessage");
+
+      const strongPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      const mediumPattern = /^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+
+      if (strongPattern.test(password)) 
+      {
+        strengthMessage.textContent = "Strength: Strong";
+        strengthMessage.className = "message strong";
+      } 
+      else if (mediumPattern.test(password)) 
+      {
+        strengthMessage.textContent = "Strength: Medium";
+        strengthMessage.className = "message medium";
+      } 
+      else 
+      {
+        strengthMessage.textContent = "Strength: Weak (Use 8+ chars, mix case, digits & symbols)";
+        strengthMessage.className = "message weak";
+      }
+    }
+
+    function checkMatch() 
+    {
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const matchMessage = document.getElementById("matchMessage");
+
+      if (confirmPassword === password) 
+      {
+        matchMessage.textContent = "Passwords match ";
+        matchMessage.style.color = "green";
+      } 
+      else 
+      {
+        matchMessage.textContent = "Passwords do not match ";
+        matchMessage.style.color = "red";
+      }
+    }
+
+
+    function validateForm() 
+    {
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) 
+      {
+        alert("Passwords do not match.");
+        return false;
+      }
+
+      // Optional: force strong password before allowing submission
+      const strongPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      if (!strongPattern.test(password)) 
+      {
+        alert("Please choose a stronger password.");
+        return false;
+      }
+
+      alert("Form submitted successfully!");
+      return true;
+    }
+  </script>
+
+</body>
+</html>
