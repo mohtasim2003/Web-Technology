@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML and CSS Task</title>
+  <style>
+    /* 1. Basic CSS with selectors */
+
+    /* Element selector */
+    header {
+      background-color: #1e90ff; /* Color #1 (Header) */
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* ID selector */
+    #para3 {
+      color: #ff6347; /* Color #3 */
+      font-family: 'Georgia', serif;
+    }
+
+    /* Class selector */
+    .color2 {
+      color: #32cd32; /* Color #2 */
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Span style using class */
+    span.color2 {
+      font-weight: bold;
+    }
+
+    /* List styling */
+    ul {
+      border: 2px solid #333;
+      width: 200px;
+      padding: 10px;
+    }
+
+    /* Link in a box */
+    .link-box {
+      position: relative;
+      width: 300px;
+      height: 100px;
+      border: 1px solid #000;
+      margin: 20px 0;
+    }
+
+    .link-box a {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      text-decoration: none;
+      color: #1e90ff;
+    }
+
+    /* Overlapping boxes */
+    .box1, .box2, .box3 {
+      position: fixed;
+      width: 100px;
+      height: 100px;
+      opacity: 0.8;
+    }
+
+   
+    /* Overflow box */
+    .overflow-div {
+      width: 300px;
+      height: 100px;
+      border: 1px solid black;
+      overflow: auto;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Welcome to My Webpage</h1>
+  </header>
+
+  <!-- Paragraphs and span -->
+  <p class="color2">This is the first paragraph with color #2.</p>
+  <p class="color2">This is the second paragraph with color #2.</p>
+  <p id="para3">This is the third paragraph with color #3.</p>
+  <span class="color2">This is a span with color #2.</span>
+
+  <!-- Unordered List -->
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+  </ul>
+
+  <!-- External Link inside a box -->
+  <div class="link-box">
+    <a href="https://www.aiub.edu/" target="_blank">Visit Example</a>
+  </div>
+
+  <!-- Overlapping elements -->
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+
+  <!-- Overflow paragraph -->
+  <div class="overflow-div">
+    <p>
+      The wind sways through golden grain,
+Sun hides low on the village lane,
+Birdsongs ring at break of day,
+In this simple, peaceful way.
+
+Mother smiles by the kitchen fire,
+Grandma tells tales never to tire,
+Children play beneath the trees,
+Laughing loud in the summer breeze.
+
+Clouds drift in the sky above,
+Writing dreams with winds they love,
+By the pond, the ripples glide,
+Tiny boats with hopes inside.
+
+My land, my home, my sacred ground,
+In every heartbeat, you are found.
+You live within my soul and sigh—
+O Bengal, you're my lullaby.
+    </p>
+  </div>
+
+</body>
+</html>
